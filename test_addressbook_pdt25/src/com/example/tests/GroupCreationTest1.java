@@ -7,11 +7,11 @@ public class GroupCreationTest1 extends TestBase {
 	
   @Test
   public void testNonEmptyGroupCreation() throws Exception {
-	openMainPage();
+	openManePage();
     gotoGroupsPage();
     initGroupCreation();
     GroupData group = new GroupData();
-    group.groupname = "name2";
+    group.groupname = "name 1";
     group.header="header1";
     group.footer = "footer 1";
 	fillGroupForm(group);
@@ -21,7 +21,7 @@ public class GroupCreationTest1 extends TestBase {
   
   @Test
   public void testEmptyGroupCreation() throws Exception {
-	openMainPage();
+	openManePage();
     gotoGroupsPage();
     initGroupCreation();
     fillGroupForm(new GroupData("", "", ""));
