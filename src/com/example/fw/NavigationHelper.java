@@ -10,7 +10,6 @@ public class NavigationHelper extends HelperBase{
 	}
 
 	public void openMainPage() {
-			
 			driver.get(manager.baseUrl + "addressbookv4.1.4/");
 		}
 
@@ -19,8 +18,7 @@ public class NavigationHelper extends HelperBase{
 		}
 
 	public void openHomePage() {
-			
-		    click(By.linkText("home"));
+			click(By.linkText("home"));
 		}
 
 }
