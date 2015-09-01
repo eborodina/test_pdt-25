@@ -7,16 +7,16 @@
 		@Test
 	  public void testContactFormCreation() throws Exception {
 		  
-		app.openMainPage();
-		app.openHomePage();
-	    app.initContactForm();
+		app.getNavigationHelper().openMainPage();
+		app.getNavigationHelper().openHomePage();
+	    app.getContactHelper().initContactForm();
 	    ContactData contactForm = new ContactData();
 	    contactForm.first_name = "Ivan";
 	    contactForm.last_name = "Ivanov";
 	    contactForm.address = "SPb";
 	    contactForm.home = "";
 	    contactForm.address2 = "";
-	    contactForm.home2 = "";
+	    contactForm.phone2 = "";
 	    contactForm.email1 = "email1";
 	    contactForm.email2 = "email2";
 	    contactForm.day = "15";
@@ -24,9 +24,10 @@
 	    contactForm.year = "1985";
 	    contactForm.mobile_phone = "1234567";
 	   // contactForm.groupname = "name2";
-	    app.fillContactForm(this, contactForm);
-	    app.submitContactCreation();
-	    app.returnToHomePage();
+	    app.getContactHelper().fillContactForm(contactForm);
+	    app.getContactHelper().submitContactCreation();
+	    app.getContactHelper().returnToHomePage();
 	  }
-
+		
+		
 	}
