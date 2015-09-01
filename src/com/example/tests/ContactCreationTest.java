@@ -7,9 +7,9 @@
 		@Test
 	  public void testContactFormCreation() throws Exception {
 		  
-		openMainPage();
-		openHomePage();
-	    initContactForm();
+		app.openMainPage();
+		app.openHomePage();
+	    app.initContactForm();
 	    ContactData contactForm = new ContactData();
 	    contactForm.first_name = "Ivan";
 	    contactForm.last_name = "Ivanov";
@@ -24,9 +24,9 @@
 	    contactForm.year = "1985";
 	    contactForm.mobile_phone = "1234567";
 	   // contactForm.groupname = "name2";
-	    fillContactForm(contactForm);
-	    submitContactCreation();
-	    returnToHomePage();
+	    app.fillContactForm(this, contactForm);
+	    app.submitContactCreation();
+	    app.returnToHomePage();
 	  }
 
 	}
