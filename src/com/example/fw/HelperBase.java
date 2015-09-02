@@ -60,6 +60,8 @@ protected void click(By locator) {
 	driver.findElement(locator).click();
 }
 protected void selectByText(By locator, String text) {
+	if (text !=null){
 	new Select(driver.findElement(locator)).selectByVisibleText(text);
+}
 }
 }

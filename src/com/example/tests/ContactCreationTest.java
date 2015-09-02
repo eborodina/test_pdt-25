@@ -22,8 +22,8 @@
 	    contactForm.day = "15";
 	    contactForm.month = "March";
 	    contactForm.year = "1985";
-	    contactForm.mobile_phone = "1234567";
-	   // contactForm.groupname = "name2";
+	    contactForm.mobile_phone = "123";
+	  //  contactForm.groupname = "name2";
 	    app.getContactHelper().fillContactForm(contactForm);
 	    app.getContactHelper().submitContactCreation();
 	    app.getContactHelper().returnToHomePage();

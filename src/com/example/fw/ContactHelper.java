@@ -25,7 +25,7 @@ public class ContactHelper extends HelperBase {
 		    type(By.name("email2"),contactForm.email2);
 		    selectByText(By.name("bday"), contactForm.day);
 		    selectByText(By.name("bmonth"), contactForm.month);
-		//  selectByText(By.name("group_name"), contactForm.groupname);
+		  //  selectByText(By.name("group_name"), contactForm.groupname);
 		    type(By.name("byear"),contactForm.year);
 		    type(By.name("address2"),contactForm.address2);
 		    type(By.name("phone2"),contactForm.phone2);
@@ -48,6 +48,13 @@ public class ContactHelper extends HelperBase {
 	 		
 	}
 
-	
+	public void updateContact() {
+			click(By.xpath("(//input[@name='update'][@value='Update'])"));	
+		
+	}
 
-}
+	public void initContactModification(int index) {
+		click(By.xpath("(//img[@alt='Edit'])["+index+"]"));
+			}
+
+	}
