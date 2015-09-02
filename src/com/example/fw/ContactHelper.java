@@ -33,8 +33,7 @@ public class ContactHelper extends HelperBase {
 		}
 
 	public void initContactForm() {
-			
-		    click(By.linkText("add new"));
+			click(By.linkText("add new"));
 		}
 
 	public void returnToHomePage() {
@@ -43,10 +42,10 @@ public class ContactHelper extends HelperBase {
 		}
 
 	public void deleteContact(int index) {
-	click(By.xpath("//input[@name='deleted[]'][" + index + "]"));
-		click(By.name("update"));
-	
-		
+		//click(By.xpath("//input[@id='id" +index+"']"));
+		click(By.xpath("(//img[@alt='Edit'])["+index+"]"));
+	    click(By.xpath("(//input[@name='update'][@value='Delete'])"));
+	 		
 	}
 
 	
