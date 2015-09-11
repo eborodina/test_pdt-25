@@ -7,9 +7,10 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 public class ContactCreationTest extends TestBase {
-
-	@Test
-	public void testContactFormCreation() throws Exception {
+	
+	@Test(dataProvider = "randomValidContactGenerator")
+	
+	public void testContactCreationValidData(ContactData contactForm) throws Exception {
 
 		app.getNavigationHelper().openMainPage();
 		app.getNavigationHelper().openHomePage();
@@ -19,20 +20,7 @@ public class ContactCreationTest extends TestBase {
 
 		// actions
 		app.getContactHelper().initContactForm();
-		ContactData contactForm = new ContactData();
-		contactForm.first_name = "Oleg";
-		contactForm.last_name = "Abramov";
-		contactForm.address = "SPb";
-		contactForm.home = "";
-		contactForm.address2 = "";
-		contactForm.phone2 = "";
-		contactForm.email1 = "email1";
-		contactForm.email2 = "email2";
-		contactForm.day = "15";
-		contactForm.month = "March";
-		contactForm.year = "1985";
-		contactForm.mobile_phone = "123";
-		// contactForm.groupname = "name2";
+				// contactForm.groupname = "name2";
 		app.getContactHelper().fillContactForm(contactForm);
 		app.getContactHelper().submitContactCreation();
 		app.getContactHelper().returnToHomePage();

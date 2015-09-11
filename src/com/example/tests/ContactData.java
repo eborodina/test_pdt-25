@@ -23,8 +23,11 @@ public class ContactData implements Comparable<ContactData> {
 
 	@Override
 	public String toString() {
-		return "ContactData [first_last=" + first_last + "]";
+		return "ContactData [first_name=" + first_name + ", last_name=" + last_name + ", address=" + address + ", home="
+				+ home + ", email1=" + email1 + "]";
 	}
+
+
 
 	@Override
 	public int hashCode() {

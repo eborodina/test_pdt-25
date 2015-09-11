@@ -67,7 +67,7 @@ public class ContactHelper extends HelperBase {
 
 	public void deleteContact(int index) {
 		// click(By.xpath("//input[@id='id" +index+"']"));
-		click(By.xpath("(//img[@alt='Edit'])[" + index + 1 + "]"));
+		click(By.xpath("(//img[@alt='Edit'])[" + (index + 1) + "]"));
 		click(By.xpath("(//input[@name='update'][@value='Delete'])"));
 
 	}
@@ -78,7 +78,7 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void initContactModification(int index) {
-		click(By.xpath("(//img[@alt='Edit'])[" + index + 1 + "]"));
+		click(By.xpath("(//img[@alt='Edit'])[" + (index+1) + "]"));
 	}
 
 	public List<ContactData> getContacts() {
