@@ -30,7 +30,6 @@ public class ContactCreationTest extends TestBase {
 
 		// compare states
 		// assertEquals(newList.size(), oldList.size()+1);
-		app.getContactHelper().fillFirstLastName(contactForm);
 		oldList.add(contactForm);
 		Collections.sort(oldList);
 		Collections.sort(newList);

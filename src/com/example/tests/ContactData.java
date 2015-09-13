@@ -21,20 +21,19 @@ public class ContactData implements Comparable<ContactData> {
 
 	}
 
-	@Override
-	public String toString() {
-		return "ContactData [first_name=" + first_name + ", last_name=" + last_name + ", address=" + address + ", home="
-				+ home + ", email1=" + email1 + "]";
-	}
-
-
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((first_last == null) ? 0 : first_last.hashCode());
+		result = prime * result + ((first_name == null) ? 0 : first_name.hashCode());
+		result = prime * result + ((last_name == null) ? 0 : last_name.hashCode());
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "ContactData [first_name=" + first_name + ", last_name=" + last_name + "]";
 	}
 
 	@Override
@@ -46,16 +45,21 @@ public class ContactData implements Comparable<ContactData> {
 		if (getClass() != obj.getClass())
 			return false;
 		ContactData other = (ContactData) obj;
-		if (first_last == null) {
-			if (other.first_last != null)
+		if (first_name == null) {
+			if (other.first_name != null)
 				return false;
-		} else if (!first_last.equals(other.first_last))
+		} else if (!first_name.equals(other.first_name))
+			return false;
+		if (last_name == null) {
+			if (other.last_name != null)
+				return false;
+		} else if (!last_name.equals(other.last_name))
 			return false;
 		return true;
 	}
 
 	public int compareTo(ContactData other) {
-		return this.first_last.toLowerCase().compareTo(other.first_last.toLowerCase());
-	}
-
+		return this.first_name.toLowerCase().compareTo(other.first_name.toLowerCase());
+		}
+	
 }

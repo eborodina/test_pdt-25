@@ -81,16 +81,31 @@ public class ContactHelper extends HelperBase {
 		click(By.xpath("(//img[@alt='Edit'])[" + (index+1) + "]"));
 	}
 
+
 	public List<ContactData> getContacts() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
-		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
-		for (WebElement checkbox : checkboxes) {
-			ContactData contactForm = new ContactData();
-			String title = checkbox.getAttribute("title");
-			contactForm.first_last = title.substring("Select (".length(), title.length() - ")".length());
-			contacts.add(contactForm);
+		List<WebElement> rows = getContactRows();
+		for (WebElement row : rows) {
+			ContactData contact = new ContactData();
+			contact.last_name = setLastNameInRow(row);
+			contact.first_name = setFirstNameInRow(row);
+			contacts.add(contact);
 		}
 		return contacts;
 	}
 
+	public String setFirstNameInRow(WebElement row) {
+		return row.findElement(By.xpath("./td[3]")).getText();
+	}
+
+	public String setLastNameInRow(WebElement row) {
+		return row.findElement(By.xpath("./td[2]")).getText();
+	}
+
+	private List<WebElement> getContactRows() {
+		return driver.findElements(By.xpath("//tr[@name='entry']"));
+	}
 }
+	
+				
+		
