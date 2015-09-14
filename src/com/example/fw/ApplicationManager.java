@@ -17,14 +17,15 @@ public class ApplicationManager {
 		 driver = new FirefoxDriver();
 		 baseUrl = "https://localhost/";
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 
+		 driver.get(baseUrl + "addressbookv4.1.4/");
+				 
 		 //1-й способ - ѕредварительна€ инициализаци€ 
 		// navigationHelper = new NavigationHelper(this); 
 		// groupHelper = new GroupHelper(this);
 		// contactHelper = new ContactHelper(this);
 	}
 	// 2-й способ
-	public NavigationHelper getNavigationHelper(){
+	public NavigationHelper navigateTo(){
 		if(navigationHelper == null) {
 			navigationHelper = new NavigationHelper(this);
 		}

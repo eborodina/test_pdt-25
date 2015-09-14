@@ -9,16 +9,37 @@ public class NavigationHelper extends HelperBase{
 		
 	}
 
-	public void openMainPage() {
-			driver.get(manager.baseUrl + "addressbookv4.1.4/");
+	public void mainPage() {
+		if (! onMainPage()) {
+			//driver.get(manager.baseUrl + "addressbookv4.1.4/");
+			click(By.linkText("home"));	
 		}
+	}
 
-	public void gotoGroupsPage() {
+	private boolean onMainPage() {
+	return	driver.findElements(By.id("maintable")).size()>0 ;
+	}
+	
+
+	public void groupsPage() {
+		if(! onGroupsPage()) { 
 			click(By.linkText("groups"));
 		}
+		}
+	private boolean onGroupsPage() {
+		//String currentUrl = driver.getCurrentUrl();
+		//driver.findElements(By.name("new"));
+		if (driver.getCurrentUrl().contains("/group.php") 
+				&& driver.findElements(By.name("new")).size()>0) {
+			return true;
+		} else {
+		
+		return false;
+	}
+	}
 
 	public void openHomePage() {
-			click(By.linkText("home"));
+		click(By.linkText("home"));
 		}
 
 }

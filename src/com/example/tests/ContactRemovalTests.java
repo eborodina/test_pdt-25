@@ -9,21 +9,21 @@ import java.util.Random;
 import org.testng.annotations.Test;
 
 public class ContactRemovalTests extends TestBase {
-	
+
 	@Test
 	public void deleteSomeContact() {
-		app.getNavigationHelper().openMainPage();
-		app.getNavigationHelper().openHomePage();
+//		app.navigateTo().mainPage();
+//		app.navigateTo().openHomePage();
 
 		// save old state
 		List<ContactData> oldList = app.getContactHelper().getContacts();
-		
+
 		Random rnd = new Random();
-		int index = rnd.nextInt(oldList.size()-1);
-		
+		int index = rnd.nextInt(oldList.size() - 1);
+
 		// action
 		app.getContactHelper().deleteContact(index);
-		app.getContactHelper().returnToHomePage();
+		//.returnToHomePage();
 
 		// save new state
 		List<ContactData> newList = app.getContactHelper().getContacts();

@@ -1,21 +1,21 @@
 package com.example.tests;
 
 public class ContactData implements Comparable<ContactData> {
-	public String first_name;
-	public String last_name;
-	public String address;
-	public String home;
-	public String mobile_phone;
-	public String work;
-	public String email1;
-	public String email2;
-	public String day;
-	public String month;
-	public String year;
-	public String address2;
-	public String phone2;
-	public String groupname;
-	public String first_last;
+	private String first_name;
+	private String last_name;
+	private String address;
+	private String home;
+	private String mobile_phone;
+	private String work;
+	private String email1;
+	private String email2;
+	private String day;
+	private String month;
+	private String year;
+	private String address2;
+	private String phone2;
+	private String groupname;
+	
 
 	public ContactData() {
 
@@ -61,5 +61,77 @@ public class ContactData implements Comparable<ContactData> {
 	public int compareTo(ContactData other) {
 		return this.first_name.toLowerCase().compareTo(other.first_name.toLowerCase());
 		}
+
+
+	public ContactData withFirstName(String first_name) {
+		this.first_name = first_name;
+		return this;
+	}
+
+
+	public ContactData withLastName(String last_name) {
+		this.last_name = last_name;
+		return this;
+	}
+
+
+	public ContactData withAddress(String address) {
+		this.address = address;
+		return this;
+	}
+
+
+	public ContactData withHome(String home) {
+		this.home = home;
+		return this;
+	}
+
+	public ContactData withGroupname (String groupname) {
+		this.groupname = groupname;
+		return this;
+	}
+
+	public ContactData withAddress2(String address2) {
+		this.address2 = address2;
+		return this;
+	}
+
+
+	public ContactData withEmail(String email1) {
+		this.email1 = email1;
+		return this;
+	}
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public String getHome() {
+		return home;
+	}
 	
+	public String getMobile_phone() {
+		return home;
+	}
+
+	public String getEmail1() {
+		return email1;
+	}
+
+
+	public String getAddress2() {
+		return address2;
+	}
+
 }

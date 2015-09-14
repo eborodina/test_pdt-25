@@ -6,24 +6,28 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
+
+import static com.example.fw.ContactHelper.CREATION;
+
 public class ContactCreationTest extends TestBase {
 	
 	@Test(dataProvider = "randomValidContactGenerator")
 	
 	public void testContactCreationValidData(ContactData contactForm) throws Exception {
 
-		app.getNavigationHelper().openMainPage();
-		app.getNavigationHelper().openHomePage();
+	//	app.navigateTo().mainPage();
+//		app.navigateTo().openHomePage();
 
 		// save old state
 		List<ContactData> oldList = app.getContactHelper().getContacts();
 
 		// actions
-		app.getContactHelper().initContactForm();
-				// contactForm.groupname = "name2";
-		app.getContactHelper().fillContactForm(contactForm);
-		app.getContactHelper().submitContactCreation();
-		app.getContactHelper().returnToHomePage();
+		app.getContactHelper().createContact(contactForm);
+		/*app.getContactHelper()
+		.initContactForm()
+		.fillContactForm(contactForm, CREATION)
+		.submitContactCreation()
+		.returnToHomePage();*/
 
 		// save new state
 		List<ContactData> newList = app.getContactHelper().getContacts();
