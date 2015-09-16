@@ -4,23 +4,19 @@ public class ContactData implements Comparable<ContactData> {
 	private String first_name;
 	private String last_name;
 	private String address;
-	private String home;
+	private String home_phone;
 	private String mobile_phone;
-	private String work;
 	private String email1;
-	private String email2;
-	private String day;
-	private String month;
-	private String year;
 	private String address2;
-	private String phone2;
-	private String groupname;
-	
 
 	public ContactData() {
 
 	}
 
+	@Override
+	public String toString() {
+		return "ContactData [first_name=" + first_name + ", last_name=" + last_name + "]";
+	}
 	
 	@Override
 	public int hashCode() {
@@ -31,11 +27,7 @@ public class ContactData implements Comparable<ContactData> {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "ContactData [first_name=" + first_name + ", last_name=" + last_name + "]";
-	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -58,36 +50,47 @@ public class ContactData implements Comparable<ContactData> {
 		return true;
 	}
 
+	
 	public int compareTo(ContactData other) {
-		return this.first_name.toLowerCase().compareTo(other.first_name.toLowerCase());
+		int result;
+		result = this.last_name.toLowerCase().compareTo (other.last_name.toLowerCase());
+		if (result == 0) {
+			result = this.first_name.toLowerCase().compareTo (other.first_name.toLowerCase());
 		}
+		
+		return result;
+
+	}
 
 
+	
 	public ContactData withFirstName(String first_name) {
 		this.first_name = first_name;
 		return this;
 	}
-
 
 	public ContactData withLastName(String last_name) {
 		this.last_name = last_name;
 		return this;
 	}
 
-
 	public ContactData withAddress(String address) {
 		this.address = address;
 		return this;
 	}
 
-
-	public ContactData withHome(String home) {
-		this.home = home;
+	public ContactData withHomePhone(String home_phone) {
+		this.home_phone = home_phone;
 		return this;
 	}
 
-	public ContactData withGroupname (String groupname) {
-		this.groupname = groupname;
+	public ContactData withMobilePhone(String mobile_phone) {
+		this.mobile_phone = mobile_phone;
+		return this;
+	}
+
+	public ContactData withEmail(String email1) {
+		this.email1 = email1;
 		return this;
 	}
 
@@ -96,39 +99,29 @@ public class ContactData implements Comparable<ContactData> {
 		return this;
 	}
 
-
-	public ContactData withEmail(String email1) {
-		this.email1 = email1;
-		return this;
-	}
-
 	public String getFirst_name() {
 		return first_name;
 	}
-
 
 	public String getLast_name() {
 		return last_name;
 	}
 
-
 	public String getAddress() {
 		return address;
 	}
 
-
-	public String getHome() {
-		return home;
+	public String getHomePhone() {
+		return home_phone;
 	}
-	
-	public String getMobile_phone() {
-		return home;
+
+	public String getMobilePhone() {
+		return mobile_phone;
 	}
 
 	public String getEmail1() {
 		return email1;
 	}
-
 
 	public String getAddress2() {
 		return address2;

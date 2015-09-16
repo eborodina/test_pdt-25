@@ -11,7 +11,6 @@ public class NavigationHelper extends HelperBase{
 
 	public void mainPage() {
 		if (! onMainPage()) {
-			//driver.get(manager.baseUrl + "addressbookv4.1.4/");
 			click(By.linkText("home"));	
 		}
 	}
@@ -27,8 +26,7 @@ public class NavigationHelper extends HelperBase{
 		}
 		}
 	private boolean onGroupsPage() {
-		//String currentUrl = driver.getCurrentUrl();
-		//driver.findElements(By.name("new"));
+		
 		if (driver.getCurrentUrl().contains("/group.php") 
 				&& driver.findElements(By.name("new")).size()>0) {
 			return true;
@@ -38,8 +36,21 @@ public class NavigationHelper extends HelperBase{
 	}
 	}
 
-	public void openHomePage() {
-		click(By.linkText("home"));
+	public void contactForm(){
+		if(! onContactForm()) { 
+			click(By.linkText("add new"));
 		}
-
+		}
+	
+	private boolean onContactForm(){
+		if (driver.getCurrentUrl().contains("/edit.php") 
+				&& driver.findElements(By.name("Edit / add")).size()>0) {
+			return true;
+		} else {
+		
+		return false;
+	}
+		
+	}
+	
 }
