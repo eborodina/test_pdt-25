@@ -3,13 +3,14 @@ package com.example.tests;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
 import com.example.fw.ApplicationManager;
+import static com.example.tests.GroupDataGenerator.generateRandomGroups;
+import static com.example.tests.ContactDataGenerator.generateRandomContact;
 
 public class TestBase {
 	protected ApplicationManager app;
@@ -28,52 +29,30 @@ public class TestBase {
 
 	@DataProvider
 	public Iterator<Object[]> randomValidGroupGenerator() {
+		return wrapGroupsForDataProvider(generateRandomGroups(5)).iterator();
+	}
+
+	private List<Object[]> wrapGroupsForDataProvider(List<GroupData> groups) {
 		List<Object[]> list = new ArrayList<Object[]>();
-		for (int i = 0; i < 2; i++) {
-			GroupData group = new GroupData()
-					.withName(generateRandomString())
-					.withHeader(generateRandomString())
-					.withFooter(generateRandomString());
-			list.add(new Object[] { group });
-		}
-		return list.iterator();
+		for (GroupData group : groups) {
+			list.add(new Object[]{group});
+				}
+		return list;
 	}
 
-	public String generateRandomString() {
-		Random rnd = new Random();
-		if (rnd.nextInt(3) == 0) {
-			return "";
-		} else {
-			return "test" + rnd.nextInt();
-		}
-	}
-
+	
 	@DataProvider
 	public Iterator<Object[]> randomValidContactGenerator() {
+		return convertContactForDataProvider(generateRandomContact(3)).iterator();
+	}
+
+	private List<Object[]> convertContactForDataProvider(List<ContactData> contacts) {
 		List<Object[]> list = new ArrayList<Object[]>();
-		for (int i = 0; i < 3; i++) {
-			ContactData contactForm = new ContactData()
-					.withFirstName(generateRandomStringContact())
-					.withLastName(generateRandomStringContact())
-					.withAddress(generateRandomStringContact())
-					.withHomePhone(generateRandomStringContact())
-					.withMobilePhone(generateRandomStringContact())
-					.withEmail(generateRandomStringContact())
-					.withAddress2(generateRandomStringContact());
-			list.add(new Object[] { contactForm });
+		for (ContactData contact : contacts){
+		list.add(new Object[]{contact});
 		}
-
-		return list.iterator();
+		
+		return list;
 	}
 
-	public String generateRandomStringContact() {
-		Random rnd = new Random();
-		if (rnd.nextInt(2) == 0) {
-			return "";
-		} else {
-			return "name2" + rnd.nextInt();
-		}
-
 	}
-
-}

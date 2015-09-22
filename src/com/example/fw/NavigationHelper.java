@@ -43,14 +43,10 @@ public class NavigationHelper extends HelperBase{
 		}
 	
 	private boolean onContactForm(){
-		if (driver.getCurrentUrl().contains("/edit.php") 
-				&& driver.findElements(By.name("Edit / add")).size()>0) {
-			return true;
-		} else {
-		
-		return false;
+		return driver.getCurrentUrl().contains("/edit.php") 
+				&& driver.findElements(By.name("Edit / add")).size()>0;
 	}
 		
 	}
-	
-}
+
+
