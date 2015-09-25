@@ -1,8 +1,8 @@
 package com.example.fw;
 
-import java.net.URL;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -21,9 +21,16 @@ public class ApplicationManager {
 		 String browser = properties.getProperty("browser");
 		 if ("firefox".equals(browser)) {
 			 driver = new FirefoxDriver();
-		 } else if ("ie".equals(browser)) {
-			 driver = new InternetExplorerDriver() ;
-			 } else {
+		 } else if ("chrome".equals(browser)) {
+			 System.setProperty("webdriver.chrome.driver", "c:/test/JavaLib/chromedriver.exe");
+			  driver = new ChromeDriver();
+			 
+		 } else if (browser.equals("ie")) {
+				System.setProperty("webdriver.ie.driver", "c:/test/JavaLib/IEDriverServer.exe");
+				driver = new InternetExplorerDriver();
+			 				  	 
+				 } 
+		 else {
 				 throw new Error ("Unsupported browser: " + browser);
 			 }
 		 
